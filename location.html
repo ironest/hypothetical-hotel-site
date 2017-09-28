@@ -1,0 +1,286 @@
+ <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Panorama</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+
+    <style type="text/css">
+        
+        #list_box {
+            display: block;
+            width: 500px;
+            margin: 20px auto;
+            
+        }
+        
+        #list_header{
+            display: block;
+            height: 60px;
+            background: #ffe4c4;
+            border-radius: 25px 25px 0 0;
+            border: 1px solid #273a43; 
+        }
+        
+        #list_footer{
+            display: block;
+            /*
+            background: #273a43;
+            */
+            border-radius: 0 0 25px 25px;
+            color: #000;
+            font-size: 16px;
+            padding: 10px 45px;
+            text-align: right;
+            background: #ffe4c4;
+            border: 1px solid #273a43; 
+        }
+
+        #addActivity {
+            font-size: 16px;
+            width: 75px;
+            margin-right: 45px;
+        }
+        
+        #inputBox {
+            margin: 20px 15px 20px 45px;
+            border: none;
+            font-size: 18px;
+            width: 300px;
+            border: 1px solid #273a43;
+            padding: 0 5px;
+        }
+        
+        .activityItem {
+            padding: 12px 0 12px 45px;
+            font-size: 16px;
+            background: #b4babd;
+            border-left: 1px solid #273a43;
+            border-right: 1px solid #273a43;
+            height: 16px;
+            transition: margin .7s;
+            
+            
+        }        
+        .activityItem:nth-child(odd) {
+            background: #fff6ea;
+        }
+        .activityItem:hover {
+            background: lightgreen;
+        }
+        
+        .activityItem.checked {
+            background: #172227;
+            color: #fff;
+            text-decoration: line-through;
+            margin: 0;
+            border-top: 0;
+            border-bottom: 0;
+            padding: 12px 0 12px 37px;
+        }
+
+        .activityItem.checked:before {
+            content: '';
+            display: inline-block;
+            position: relative;
+            
+            border-color: #fff;
+            border-style: solid;
+            border-width: 0 2px 2px 0;
+            top: 0px;
+            left: -15px;
+            transform: rotate(45deg);
+            
+            height: 12px;
+            width: 6px;
+        }
+        .close{
+            float: right;
+            padding: 12px 15px;
+            margin-top: -12px;
+        }
+        .close:hover{
+            background-color: crimson;
+        }
+        #placeholder{
+            padding: 6px 0 6px 45px;
+            font-size: 16px;
+            /*
+            border-left: 1px solid #273a43;
+            border-right: 1px solid #273a43;
+            */
+            height: 16px;
+            font-style: italic;
+            color: #8f9496;
+
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div id="header">
+       <div class="middle_column">
+            <div id="banner"></div>
+        </div>
+    </div>
+    <div id="nav">
+        <div class="middle_column">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Locations</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <div class="middle_column">
+           <h1>Locations to visit</h1>
+            <div id="list_box">
+                <div id="list_header">
+                    <input type="text" id="inputBox">
+                    <input type="button" id="addActivity" value="Add">
+                </div>
+                
+                <div id="placeholder">
+                    empty
+                </div>
+                
+                <ul id="activityUL">
+                </ul>
+            
+                <div id="list_footer">
+                    0 location(s) planned
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    <div id="footer">
+        <div class="middle_column">
+            
+            <div id="DateAndTime">
+                
+            </div>
+ 
+        </div>
+    </div>
+    <div id="credit">
+        <div class="middle_column">
+            Credits: &copy;	Carzaniga Riccardo Ernesto @ Petersham TAFE
+        </div>
+    </div>
+
+<script type="text/javascript">
+
+    function setNbrActivity(){
+        var arrayOfLI = document.getElementsByClassName("activityItem");
+        document.getElementById("list_footer").innerHTML = arrayOfLI.length + " location(s) planned";
+        if(arrayOfLI.length == 0){
+            document.getElementById("placeholder").style.display = "inherit";   
+        }
+        else {
+            document.getElementById("placeholder").style.display = "none";
+        }
+           
+    }
+    
+    function setBanner(){
+        var idxMonth = new Date().getMonth()+1;
+        var banner_class = "";
+
+        switch (idxMonth) {
+            case 12:
+            case 1:
+            case 2:
+                banner_class = "banner_summer";
+                break; 
+            case 3:
+            case 4:
+            case 5:
+                banner_class = "banner_autumn";
+                break; 
+            case 6:
+            case 7:
+            case 8:
+                banner_class = "banner_winter";
+                break;
+            case 9:
+            case 10:
+            case 11:
+                banner_class = "banner_spring";
+                break;
+        }
+        document.getElementById("banner").className = banner_class;
+        document.getElementById("header").className = banner_class;
+        
+    }
+    
+
+    function getDateAndTime(){
+
+        var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        var now = new Date();
+        var day = days[ now.getDay() ];
+        var nbrDay = now.getDate();
+        var month = months[ now.getMonth() ];
+        var year = now.getFullYear();
+        
+        document.getElementById("DateAndTime").innerHTML = "Today is: " + day + " the " + nbrDay + " of " + month + " " + year;
+        
+    }
+
+    function addActivityToList() {
+        var li = document.createElement("li");
+        var inputValue = document.getElementById("inputBox").value;
+        var t = document.createTextNode(inputValue);
+        li.appendChild(t);
+        if (inputValue === '') {
+            alert("Please enter an activity!");
+        } else {
+            li.classList.add("activityItem");
+            document.getElementById("activityUL").appendChild(li);
+        }
+        document.getElementById("inputBox").value = "";
+        setNbrActivity();
+
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+        
+        var close = document.getElementsByClassName("close");
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+                var ul = this.parentElement.parentElement;
+                ul.removeChild(this.parentElement);
+                setNbrActivity();
+            }
+        }
+        
+
+    }
+    
+    setBanner();
+    getDateAndTime();
+    setNbrActivity();
+    document.getElementById("addActivity").addEventListener('click',addActivityToList,false);
+
+
+    
+    document.getElementById('activityUL').addEventListener('click', function(ev){
+        if (ev.target.tagName === 'LI') {
+            ev.target.classList.toggle('checked');
+        }
+    }, false);
+
+    
+</script>
+</body>
+
+</html>

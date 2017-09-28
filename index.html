@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Panorama</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+
+    <style type="text/css">
+
+        
+        .thumb {
+            width: 160px;
+            height: 120px;
+            margin: 10px 20px;
+            display: inline-block;
+            float: left;
+            position: relative;
+            border: 1px solid #273a43;
+        }
+        
+        .row_thumb {
+            display: block;
+            width: 606px;
+            margin: 20px auto;
+            height: 140px;
+        }        
+        
+        .thumb img {
+            transition: opacity .7s;
+            position: absolute;
+        }
+        .thumb p {
+            position: absolute;
+            margin: 10px;
+            font-size: 14px;
+            line-height: 20px;
+            z-index:-1;
+        }
+        
+        .thumb img:hover {
+            opacity: 0;
+        }
+        
+
+
+    </style>
+</head>
+<body>
+
+    <div id="header">
+       <div class="middle_column">
+            <div id="banner"></div>
+        </div>
+    </div>
+    <div id="nav">
+        <div class="middle_column">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="location.html">Locations</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <div class="middle_column">
+            <h1>Home Page</h1>
+            <div class="row_thumb">
+                <div class="thumb">
+                    <p>Enjoy a wonderful day on the clear waters of the famous Juminjorun lake</p>
+                    <img src="img/Gallery_01.jpg" alt="Eventual_Description">
+                </div>
+                <div class="thumb">
+                    <p>Rent a single trip on our boats and leave Mantorin shores on the blue river</p>
+                    <img src="img/Gallery_02.jpg" alt="Eventual_Description">
+                </div>
+                <div class="thumb">
+                    <p>Visit the most antique reef of Tankiton land and explore its hidden caves</p>
+                    <img src="img/Gallery_03.jpg" alt="Eventual_Description">
+                </div>
+            </div>
+            <div class="row_thumb">
+                <div class="thumb">
+                    <p>Take a break and be delighted of the sight of a sunset under the Harbour Bridge</p>
+                    <img src="img/Gallery_04.jpg" alt="Eventual_Description">
+                </div>
+                <div class="thumb">
+                    <p>Ski lover? Take advantage of one of our many cableways and experience our best tracks</p>
+                    <img src="img/Gallery_05.jpg" alt="Eventual_Description">
+                </div>
+                <div class="thumb">
+                    <p>Visit the old harbour; bring your camera cause plenty of colours await you there</p>
+                    <img src="img/Gallery_06.jpg" alt="Eventual_Description">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id="footer">
+        <div class="middle_column">
+            
+            <div id="DateAndTime">
+                
+            </div>
+ 
+        </div>
+    </div>
+    <div id="credit">
+        <div class="middle_column">
+            Credits: &copy;	Carzaniga Riccardo Ernesto @ Petersham TAFE
+        </div>
+    </div>
+
+<script src="js/common.js"></script>
+</body>
+
+</html>

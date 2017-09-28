@@ -1,0 +1,98 @@
+
+        h1 {
+            font-size: 30px;
+            text-align: center;
+            margin: 30px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        #header {
+            background-image: url(../img/Season_bg.jpg);
+        }
+        
+        #banner {
+            height: 200px;
+            width: 970px;
+            margin: 0 auto;
+            background-image: url(../img/FourSeasonsBanner.jpg);
+        }
+        
+        .banner_summer {background-position: center 0;}
+        .banner_autumn {background-position: center -200px;}
+        .banner_spring {background-position: center -400px;}
+        .banner_winter {background-position: center -600px;}
+        
+        #nav{
+            height: 40px;
+            background-color: #ffe4c4;
+        }
+        #nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 970px;
+            height: 40px;
+        }
+        
+        #nav ul li {
+            width: 120px;
+            height: 40px;
+            display: inline-block;
+        }
+        
+        #nav ul li a {
+            width: 120px;
+            height: 20px;
+            display: inline-block;
+            font-size: 20px;
+            text-decoration: none;
+            padding: 10px 0;
+            text-align: center;
+            color: #273a43;
+            transition: background-color .7s;
+        }
+        
+        #nav ul li a:hover {
+            background-color: #111b2a;
+            color: #ffe4c4;
+        }
+        
+        #footer {
+            background-color: #273a43;
+            height: 140px;
+        }
+        
+        #content {
+            min-height: calc(100vh - 420px);
+            display: inline-block;
+            width: 100%;
+        }
+        
+        #credit {
+            background-color: #172227;
+            height: 30px;
+            font-size: 16px;
+            padding-top: 10px;
+            color: white;
+            text-align: center;
+        }
+        
+        .middle_column {
+            width: 970px;
+            margin: 0 auto;
+            display: block;
+        }
+        
+
+        #DateAndTime {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            height: 16px;
+            width: 100%;
+            margin-top: 60px;
+        }
